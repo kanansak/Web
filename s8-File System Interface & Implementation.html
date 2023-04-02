@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://moormutsvos.netlify.app/slide_os/s8.html -->
+<html class="reveal-full-page"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Oerating System</title>
+
+		<link rel="stylesheet" href="./s8-File System Interface &amp; Implementation_files/reset.css">
+		<link rel="stylesheet" href="./s8-File System Interface &amp; Implementation_files/reveal.css">
+		<link rel="stylesheet" href="./s8-File System Interface &amp; Implementation_files/moo.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="./s8-File System Interface &amp; Implementation_files/monokai.css" id="highlight-theme">
+	<style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style></head>
+	<body class="reveal-viewport" style="--slide-width:960px; --slide-height:700px;">
+		<div class="reveal slide center focused has-horizontal-slides ready" role="application" data-transition-speed="default" data-background-transition="fade" style="">
+			<div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(0.990171);">
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 210.5px; display: block;" class="present"><h2 id="file-system-interface--implementation">File System Interface &amp; Implementation</h2>
+<p>by</p>
+<p>Authapon Kongwan</p>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 128.5px; display: block;" hidden="" aria-hidden="true" class="future"><h2 id="file-concept">File Concept</h2>
+<ul>
+<li>Computer can store information on serveral different storage media, such as magnetic disks, magnetic tapes, and optical disks.</li>
+<li>So that the computer system will be convenient to use, the operating system provides a uniform logical view of information storage.</li>
+<li>The operating system abtracts from the physical properties of its storage devices to define a logical storage unit, the <span style="color:red;">file</span>.</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 173px; display: block;" hidden="" aria-hidden="true" class="future"><h2 id="file-attributes">File Attributes</h2>
+<ul>
+<li>Name</li>
+<li>Type</li>
+<li>Location</li>
+<li>Size</li>
+<li>Protection</li>
+<li>Time, date, and user identification</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="file-operations">File Operations</h2>
+<ul>
+<li>Creating a file</li>
+<li>Writing a file</li>
+<li>Reading a file</li>
+<li>Repositioning within a file</li>
+<li>Deleting a file</li>
+<li>Truncating a file</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="file-types">File Types</h2>
+<ul>
+<li>One major consideration in designing a file system, and the entrie operating system, is whether the operating system should recognize and support file types</li>
+<li>If an operating system recognizes the type of a file, it can then operate on the file in reasonable ways.</li>
+<li>File types in name (MS-DOS, Windows)<ul>
+<li>Executable (exe,com,bin)</li>
+<li>Object (obj,o)</li>
+<li>Source Code (c,p,pas,asm)</li>
+<li>Text (txt)</li>
+<li>Archive (zip,tar) </li>
+</ul>
+</li>
+<li>File types in attribute (Unix,Linux) </li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="access-methods">Access Methods</h2>
+<ul>
+<li>Sequential Access</li>
+<li>Direct Access (Relative Access)</li>
+<li>Other Access Methods</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="directory">Directory</h2>
+<ul>
+<li>The partition contains information about files within it.</li>
+<li>The device directory record information - such as name, location, size, type - for all files on that partition</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="directory-operation">Directory Operation</h2>
+<ul>
+<li>Search for a file</li>
+<li>Create a file</li>
+<li>Delete a file</li>
+<li>List a directory</li>
+<li>Rename a file</li>
+<li>Traverse the file system</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="directory-structure">Directory Structure</h2>
+<ul>
+<li>Single-Level Directory</li>
+<li>Two-Level Directory</li>
+<li>Tree-Structure Directories</li>
+<li>Acyclic-Graph Directories</li>
+<li>General-Graph Directory</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="single-level-directory">Single-Level Directory</h2>
+<img class="r-stretch" src="./s8-File System Interface &amp; Implementation_files/singledir.png" style="height: 200.165px; width: 960px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="two-level-directory">Two-Level Directory</h2>
+<img class="r-stretch" src="./s8-File System Interface &amp; Implementation_files/twoleveldir.png" style="height: 278.354px; width: 960px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="tree-structure-directories">Tree-Structure Directories</h2>
+<img class="r-stretch" src="./s8-File System Interface &amp; Implementation_files/treedir.png" style="height: 681.395px; width: 960px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="acyclic-graph-directories">Acyclic-Graph Directories</h2>
+<img class="r-stretch" src="./s8-File System Interface &amp; Implementation_files/acyclicdir.png" style="height: 682.449px; width: 960px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="general-graph-directory">General-Graph Directory</h2>
+<img class="r-stretch" src="./s8-File System Interface &amp; Implementation_files/gendir.png" style="height: 612.048px; width: 960px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="protection">Protection</h2>
+<ul>
+<li>Read</li>
+<li>Write</li>
+<li>Execute</li>
+<li>Append</li>
+<li>Delete</li>
+<li>List</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="access-lists-and-groups">Access Lists and Groups</h2>
+<ul>
+<li>Owner</li>
+<li>Group</li>
+<li>Universe</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="directory-allocation-methods">Directory Allocation Methods</h2>
+<ul>
+<li>Contiguous Allocation</li>
+<li>Linked Allocation</li>
+<li>Indexed Allocation</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="contiguous-allocation">Contiguous Allocation</h2>
+<img class="r-stretch" src="./s8-File System Interface &amp; Implementation_files/condirallo.png" style="height: 661.872px; width: 960px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="linked-allocation">Linked Allocation</h2>
+<img class="r-stretch" src="./s8-File System Interface &amp; Implementation_files/linkdirallo.png" style="height: 654.993px; width: 960px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="linked-allocation">Linked Allocation</h2>
+<img class="r-stretch" src="./s8-File System Interface &amp; Implementation_files/fatdirallo.png" style="height: 700px; width: 714.797px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="indexed-allocation">Indexed Allocation</h2>
+<img class="r-stretch" src="./s8-File System Interface &amp; Implementation_files/indexdirallo.png" style="height: 700px; width: 935.837px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="directory-implementation">Directory Implementation</h2>
+<ul>
+<li>Linear List</li>
+<li>Hash Table</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h1 id="end">END</h1>
+<img class="r-stretch" src="./s8-File System Interface &amp; Implementation_files/dogsmile.webp" style="height: 700px; width: 393.843px;">
+</section>
+
+	</div>
+		<div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-number" style="display: block;"><a href="https://moormutsvos.netlify.app/slide_os/s8.html#/">
+					<span class="slide-number-a">1</span>
+					</a></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-right enabled highlight" aria-label="next slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div class="aria-status" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">File System Interface &amp; Implementation by Authapon Kongwan </div></div>
+
+		<script src="./s8-File System Interface &amp; Implementation_files/reveal.js.ดาวน์โหลด"></script>
+		<script src="./s8-File System Interface &amp; Implementation_files/notes.js.ดาวน์โหลด"></script>
+		<script src="./s8-File System Interface &amp; Implementation_files/markdown.js.ดาวน์โหลด"></script>
+		<script src="./s8-File System Interface &amp; Implementation_files/highlight.js.ดาวน์โหลด"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	
+
+</body></html>

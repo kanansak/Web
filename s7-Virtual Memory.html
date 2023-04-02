@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://moormutsvos.netlify.app/slide_os/s7.html -->
+<html class="reveal-full-page"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Oerating System</title>
+
+		<link rel="stylesheet" href="./s7-Virtual Memory_files/reset.css">
+		<link rel="stylesheet" href="./s7-Virtual Memory_files/reveal.css">
+		<link rel="stylesheet" href="./s7-Virtual Memory_files/moo.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="./s7-Virtual Memory_files/monokai.css" id="highlight-theme">
+	<style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style></head>
+	<body class="reveal-viewport" style="--slide-width:960px; --slide-height:700px;">
+		<div class="reveal slide center focused has-horizontal-slides ready" role="application" data-transition-speed="default" data-background-transition="fade" style="">
+			<div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(0.990171);">
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 243px; display: block;" class="present"><h2 id="virtual-memory">Virtual Memory</h2>
+<p>by</p>
+<p>Authapon Kongwan</p>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 189px; display: block;" hidden="" aria-hidden="true" class="future"><h2 id="virtaul-memory">Virtaul memory</h2>
+<ul>
+<li><p>Virtual memory is a technique that allows the execution of processes that may not be completely in memory.</p>
+</li>
+<li><p>The main visible advantage of this scheme is that programs can be larger than physical memory.</p>
+</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 228.5px; display: block;" hidden="" aria-hidden="true" class="future"><h2 id="virtual-memory-implementation">Virtual Memory Implementation</h2>
+<ul>
+<li>Demand Paging</li>
+<li>Demand Segmentation</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="demand-paging">Demand Paging</h2>
+<img class="r-stretch" src="./s7-Virtual Memory_files/demandpaging.png" style="height: 428.266px; width: 960px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="demand-paging">Demand Paging</h2>
+<img class="r-stretch" src="./s7-Virtual Memory_files/demandpaging2.png" style="height: 539.666px; width: 960px;">
+
+<ul>
+<li>Access to a page marked invalid causes a <span style="color:red;">page-fault</span> trap.</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="page-fault-service-routine">Page-Fault Service Routine</h2>
+<ul>
+<li>Find the location of the desired page on the disk</li>
+<li>Find a free frame<ul>
+<li>If there is a free frame, use it</li>
+<li>Otherwise, use a page-replacement algorithm to select a <span style="color:red;">victim</span> frame</li>
+<li>Write the victim page to the disk; change the page and frame tables accordingly</li>
+</ul>
+</li>
+<li>Read the desired page into the (newly) free frame; change the page and frame tables</li>
+<li>Restart the user process</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="page-replacement-algorithm">Page Replacement Algorithm</h2>
+<ul>
+<li>First-In-First-Out Algorithm (FIFO)</li>
+<li>Optimal Algorithm</li>
+<li>Least-Recently-Used Algorithm (LRU)</li>
+<li>Counting Algorithm</li>
+<li>Page Buffering Algorithm</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="fifo-algorithm">FIFO Algorithm</h2>
+<img class="r-stretch" src="./s7-Virtual Memory_files/demandpagingfifo.png" style="height: 113.655px; width: 960px;">
+
+<ul>
+<li>page-fault = 15</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="optimal-algorithm">Optimal Algorithm</h2>
+<img class="r-stretch" src="./s7-Virtual Memory_files/demandpagingop.png" style="height: 108.153px; width: 960px;">
+
+<ul>
+<li>page-fault = 9</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="lru-algorithm">LRU Algorithm</h2>
+<img class="r-stretch" src="./s7-Virtual Memory_files/demandpaginglru.png" style="height: 115.065px; width: 960px;">
+
+<ul>
+<li>page-fault = 12</li>
+</ul>
+<hr>
+<h4 id="implementation">Implementation</h4>
+<ul>
+<li>Counters</li>
+<li>Stack</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="counting-algorithm">Counting Algorithm</h2>
+<ul>
+<li><em>Least Frequently Used (LFU)</em> page-replacement algorithm requires that the page with the smallest count be replaced</li>
+<li><em>Most Frequently Used (MFU)</em> page-replacement algorithm is based on the argument that the page with the smallest count was probably just brought in and has yet to be used</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="page-buffering-algorithm">Page Buffering Algorithm</h2>
+<ul>
+<li>Systems commonly keep a <span style="color:red;">pool</span> of free frames</li>
+<li>When a page fault occurs, a victim frame is chosen as before</li>
+<li>However, the desired page is read into a free frames from the pool before the victim is written out</li>
+<li>This procedure allows the process to restart as soon as possible, without waiting for the victim page to be written out</li>
+<li>When the victim is later written out, its frame is added to the free-frame pool</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h1 id="end">END</h1>
+<img class="r-stretch" src="./s7-Virtual Memory_files/dogsmile.webp" style="height: 700px; width: 393.843px;">
+</section>
+
+	</div>
+		<div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-number" style="display: block;"><a href="https://moormutsvos.netlify.app/slide_os/s7.html#/">
+					<span class="slide-number-a">1</span>
+					</a></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-right enabled highlight" aria-label="next slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div class="aria-status" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">Virtual Memory by Authapon Kongwan </div></div>
+
+		<script src="./s7-Virtual Memory_files/reveal.js.ดาวน์โหลด"></script>
+		<script src="./s7-Virtual Memory_files/notes.js.ดาวน์โหลด"></script>
+		<script src="./s7-Virtual Memory_files/markdown.js.ดาวน์โหลด"></script>
+		<script src="./s7-Virtual Memory_files/highlight.js.ดาวน์โหลด"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	
+
+</body></html>

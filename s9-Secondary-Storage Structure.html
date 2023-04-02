@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)https://moormutsvos.netlify.app/slide_os/s9.html -->
+<html class="reveal-full-page"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Oerating System</title>
+
+		<link rel="stylesheet" href="./s9-Secondary-Storage Structure_files/reset.css">
+		<link rel="stylesheet" href="./s9-Secondary-Storage Structure_files/reveal.css">
+		<link rel="stylesheet" href="./s9-Secondary-Storage Structure_files/moo.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="./s9-Secondary-Storage Structure_files/monokai.css" id="highlight-theme">
+	<style type="text/css">.hljs-ln{border-collapse:collapse}.hljs-ln td{padding:0}.hljs-ln-n:before{content:attr(data-line-number)}</style></head>
+	<body class="reveal-viewport" style="--slide-width:960px; --slide-height:700px;">
+		<div class="reveal slide center focused has-horizontal-slides ready" role="application" data-transition-speed="default" data-background-transition="fade" style="">
+			<div class="slides" style="width: 960px; height: 700px; inset: 50% auto auto 50%; transform: translate(-50%, -50%) scale(0.990171);">
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 210.5px; display: block;" class="present"><h2 id="secondary-storage-structure">Secondary-Storage Structure</h2>
+<p>by</p>
+<p>Authapon Kongwan</p>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 86.5px; display: block;" hidden="" aria-hidden="true" class="future"><h2 id="disk-structure">Disk Structure</h2>
+<ul>
+<li>Disks provide the bulk of secondary storage for modern computer systems</li>
+<li>Magnetic tape was used as an early secondary-storage medium</li>
+<li>Although it is relatively permanent,and can hold large numbers of data, magnetic tape is slow</li>
+<li>Magnetic tape is limited to sequential access</li>
+<li>Tapes are currently used mainly for backup, for storage of infrequently used information, and as medium for tranferring information from one system to another</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 175px; display: block;" hidden="" aria-hidden="true" class="future"><h2 id="disk-structure">Disk Structure</h2>
+<ul>
+<li>Information on the disk is referenced by a multipart address, which includes the drive number, the surface, the track, and the sector</li>
+<li>All the tracks on one drive that can be accessed without the heads being moved (the equivalent tracks on the different surfaces) constitute a <span style="color:red;">cylinder</span></li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="disk-structure">Disk structure</h2>
+<ul>
+<li>Disk Speed is composed of three parts</li>
+<li>To access a block on disk, the system must first move the head to the appropriate track od cylinder</li>
+<li>This head movement is called a <span style="color:red;">seek</span></li>
+<li>And the time to complete it is <span style="color:red;">seek time</span></li>
+<li>Once the head is at the right track, it must wait until the desired block rotates under the read-write head</li>
+<li>This delay is <span style="color:red;">latency time</span></li>
+<li>Finally, the actual transfer of data between the disk and main memory can take place, this part is <span style="color:red;">transfer time</span></li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="disk-scheduling">Disk Scheduling</h2>
+<ul>
+<li>First-Come-First-Serve (FCFS)</li>
+<li>Shortest-Seek-time-first (SSTF)</li>
+<li>SCAN</li>
+<li>C-Scan</li>
+<li>LOOK</li>
+</ul>
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="first-come-first-serve-scheduling">First-Come-First-Serve Scheduling</h2>
+<img class="r-stretch" src="./s9-Secondary-Storage Structure_files/diskfcfs.png" style="height: 0px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="shortest-seek-time-first-scheduling">Shortest-Seek-Time-First Scheduling</h2>
+<img class="r-stretch" src="./s9-Secondary-Storage Structure_files/disksstf.png" style="height: 0px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="scan-scheduling">SCAN Scheduling</h2>
+<img class="r-stretch" src="./s9-Secondary-Storage Structure_files/diskscan.png" style="height: 0px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="c-scan-scheduling">C-Scan Scheduling</h2>
+<img class="r-stretch" src="./s9-Secondary-Storage Structure_files/diskcscan.png" style="height: 0px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="look-scheduling">LOOK Scheduling</h2>
+<img class="r-stretch" src="./s9-Secondary-Storage Structure_files/disklook.png" style="height: 0px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h2 id="look-scheduling">LOOK Scheduling</h2>
+<img class="r-stretch" src="./s9-Secondary-Storage Structure_files/diskclook.png" style="height: 0px;">
+</section>
+
+<section data-markdown="" data-markdown-parsed="true" style="top: 350px; display: none;" hidden="" aria-hidden="true" class="future"><h1 id="end">END</h1>
+<img class="r-stretch" src="./s9-Secondary-Storage Structure_files/dogsmile.webp" style="height: 0px;">
+</section>
+
+	</div>
+		<div class="backgrounds"><div class="slide-background present" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" data-loaded="true" style="display: block;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div><div class="slide-background future" style="display: none;"><div class="slide-background-content"></div></div></div><div class="slide-number" style="display: block;"><a href="https://moormutsvos.netlify.app/slide_os/s9.html#/">
+					<span class="slide-number-a">1</span>
+					</a></div><aside class="controls" data-controls-layout="bottom-right" data-controls-back-arrows="faded" style="display: block;"><button class="navigate-left" aria-label="previous slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-right enabled highlight" aria-label="next slide"><div class="controls-arrow"></div></button>
+			<button class="navigate-up" aria-label="above slide" disabled="disabled"><div class="controls-arrow"></div></button>
+			<button class="navigate-down" aria-label="below slide" disabled="disabled"><div class="controls-arrow"></div></button></aside><div class="progress" style="display: block;"><span style="transform: scaleX(0);"></span></div><div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div><div class="pause-overlay"><button class="resume-button">Resume presentation</button></div><div class="aria-status" aria-live="polite" aria-atomic="true" style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">Secondary-Storage Structure by Authapon Kongwan </div></div>
+
+		<script src="./s9-Secondary-Storage Structure_files/reveal.js.ดาวน์โหลด"></script>
+		<script src="./s9-Secondary-Storage Structure_files/notes.js.ดาวน์โหลด"></script>
+		<script src="./s9-Secondary-Storage Structure_files/markdown.js.ดาวน์โหลด"></script>
+		<script src="./s9-Secondary-Storage Structure_files/highlight.js.ดาวน์โหลด"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	
+
+</body></html>
